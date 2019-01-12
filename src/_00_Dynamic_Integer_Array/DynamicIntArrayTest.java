@@ -46,7 +46,7 @@ class DynamicIntArrayTest {
 		assertEquals(2, dia.get(2));
 		assertEquals(3, dia.get(3));
 	}
-	
+//	
 	@Test
 	void testRemove() {
 		DynamicIntegerArray dia = new DynamicIntegerArray();
@@ -60,7 +60,7 @@ class DynamicIntArrayTest {
 		assertEquals(3, dia.get(1));
 		
 	}
-
+//
 	@Test
 	void testSizeAndClear() {
 		DynamicIntegerArray dia = new DynamicIntegerArray();
