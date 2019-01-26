@@ -2,6 +2,7 @@ package _01_IntroToArrayLists;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,6 +19,8 @@ public class _02_GuestBook implements ActionListener {
 	// Guest #3: Greg Ganders
 	// Guest #4: Donny Doners
 	String input;
+	String gaaaaaaaah = "";
+	ArrayList<String>names = new ArrayList<String>();
 	JPanel panel = new JPanel();
 	JFrame frame = new JFrame();
 	JButton button = new JButton("add name");
@@ -40,9 +43,14 @@ public class _02_GuestBook implements ActionListener {
 		// TODO Auto-generated method stub
 		if(e.getSource() == button) {
 			input = JOptionPane.showInputDialog("please enter a name:");
+			names.add(input);
 		}
 		if(e.getSource() == button2) {
-			
+			for(int i = 0; i < names.size(); i++) {
+				int a = i+1;
+				gaaaaaaaah = gaaaaaaaah + "guest #" + a + ": " + names.get(i) + "\n";
+			}
+			JOptionPane.showMessageDialog(null, gaaaaaaaah);
 		}
 	}
 	
