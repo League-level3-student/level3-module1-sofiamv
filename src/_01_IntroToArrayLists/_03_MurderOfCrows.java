@@ -12,10 +12,8 @@ package _01_IntroToArrayLists;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.JOptionPane;
-
 public class _03_MurderOfCrows {
-	int bahahahaha = 0;
+	int baha = 0;
 	ArrayList<Crow> theMurder = new ArrayList<Crow>();
 
 	public static void main(String[] args) {
@@ -31,15 +29,15 @@ public class _03_MurderOfCrows {
 		 */
 		for (int i = 0; i < theMurder.size(); i++) {
 			for (int ii = 0; ii < theMurder.get(i).getStomachContents().size(); ii++) {
-			 if (theMurder.get(i).getStomachContents().get(ii).equals("diamond")) {
+				if (theMurder.get(i).getStomachContents().get(ii) != ("diamond")) {
+					baha += 1;
+				} else {
 					System.out.println(theMurder.get(i).getName() + " is the guilty crow");
-				}else {
-					bahahahaha++;
+					System.out.println(i + " crows were killed before the diamond was found.");
 				}
 			}
 		}
 		/* 2. How many innocent crows had to die before the diamond was found? */
-		System.out.println(bahahahaha + " crows were killed before the diamond was found.");
 	}
 
 	private void initializeCrows() {
