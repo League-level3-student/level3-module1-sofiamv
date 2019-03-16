@@ -53,55 +53,56 @@ public class _02_TextUndoRedo implements KeyListener {
 		// TODO Auto-generated method stub
 		if (e.getKeyCode() == KeyEvent.VK_A) {
 			ah.push('a');
-			j = ah.toString();
+			j += 'a';
 			label.setText(j);
 			gah++;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_B) {
 			ah.push('b');
-			j = ah.toString();
+			j += 'b';
 			label.setText(j);
 			gah++;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_C) {
 			ah.push('c');
-			j = ah.toString();
+			j += 'c';
 			label.setText(j);
 			gah++;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_D) {
 			ah.push('d');
-			j = ah.toString();
+			j += 'd';
 			label.setText(j);
 			gah++;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_E) {
 			ah.push('e');
-			j = ah.toString();
+			j += 'e';
 			label.setText(j);
 			gah++;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_F) {
 			ah.push('f');
-			j = ah.toString();
+			j += 'f';
 			label.setText(j);
 			gah++;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_G) {
 			ah.push('g');
-			j = ah.toString();
+			j += 'g';
 			label.setText(j);
 			gah++;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-			ah.pop();
-			j = ah.toString();
+			wee.push(ah.pop());
+			j = j.substring(0, j.length() - 1);
 			label.setText(j);
-			wee.push(j.charAt(gah));
 		}
 		if (e.getKeyCode() == KeyEvent.VK_0) {
-			ah.push(wee.pop().charValue());
-			j = ah.toString();
+			if (!wee.isEmpty()) {
+				System.out.println("nothing left to re-type!");
+			}
+			j += (wee.pop());
 			label.setText(j);
 		}
 	}
