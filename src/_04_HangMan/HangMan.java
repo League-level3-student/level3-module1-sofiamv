@@ -14,22 +14,31 @@ public class HangMan implements KeyListener {
 	JFrame got = new JFrame();
 	JLabel the = new JLabel();
 	static Stack<String> town = new Stack<String>();
-	String bag;
 	int tack = 10;
 	String j;
 	int ee;
 	String u = "";
+	boolean isinword = false;
+	int playagain;
+	int replayinggame = 1;
+	static int in;
+	static HangMan yah = new HangMan();
+	static Utilities y = new Utilities();
 
 	public static void main(String[] args) {
-		HangMan yah = new HangMan();
-		Utilities y = new Utilities();
 		String horses;
-		int in;
 		horses = JOptionPane.showInputDialog("Welcome to hangman! how many words would you like to guess?");
 		in = Integer.parseInt(horses);
 		for (int i = 0; i < in; i++) {
 			town.push(y.readRandomLineFromFile("dictionary.txt"));
 		}
+		yah.Old();
+	}
+
+	public void Start() {
+		tack = 10;
+		u = "";
+		town.push(y.readRandomLineFromFile("dictionary.txt"));
 		yah.Old();
 	}
 
@@ -57,20 +66,35 @@ public class HangMan implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		isinword = false;
 		for (int i = 0; i < ee; i++) {
 			char b = e.getKeyChar();
-			int y = j.indexOf(b) - 1;
-			int z = j.indexOf(b) + 1;
-			int bah = j.length() - 1;
-			System.out.println(b + " " + y + " " + z);
 			if (b == j.charAt(i)) {
-				u = the.getText();
-				String gah = u.substring(0, j.indexOf(b) - 1) + b + u.substring(j.indexOf(b) + 1, bah);
-				the.setText(gah + " lives left: " + tack);
-				System.out.println(gah);
+				u = u.substring(0, i) + b + u.substring(i + 1);
+				System.out.println(u);
+				isinword = true;
 			}
-			if (b != j.charAt(i)) {
-				tack--;
+		}
+		the.setText(u + " lives left: " + tack);
+		if (!isinword) {
+			tack--;
+		}
+		System.out.println(tack);
+		the.setText(u + " lives left: " + tack);
+		if (tack == 0) {
+			playagain = JOptionPane.showConfirmDialog(null, "game over. the word was " + j + ". Play again?");
+			System.out.println(playagain);
+			if (playagain == 0) {
+				yah.Start();
+			}
+		}
+		if (u.equals(j)) {
+			playagain = JOptionPane.showConfirmDialog(null, "you win! play again?");
+			if (playagain == 0) {
+				yah.Start();
+			}
+			if (in > 1) {
+				yah.Start();
 			}
 		}
 	}
