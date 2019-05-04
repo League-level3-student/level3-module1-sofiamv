@@ -1,5 +1,8 @@
 package _06_Intro_To_Hash_Maps;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class _02_LogSearch {
   /* 
@@ -29,5 +32,21 @@ public class _02_LogSearch {
 	 * 				is not in the list. 
 	 *
 	 * */
-	
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton button1 = new JButton("Add entry");
+	JButton button2 = new JButton("Search by ID");
+	JButton button3 = new JButton("view list");
+	public static void main(String[] args) {
+		_02_LogSearch bah = new _02_LogSearch();
+		bah.yeehaw();
+	}
+	public void yeehaw() {
+		frame.add(panel);
+		panel.add(button1);
+		panel.add(button2);
+		panel.add(button3);
+		frame.setVisible(true);
+		frame.pack();
+	}
 }

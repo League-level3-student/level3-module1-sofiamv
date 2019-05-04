@@ -77,7 +77,7 @@ public class HangMan implements KeyListener {
 		}
 		the.setText(u + " lives left: " + tack);
 		if (!isinword) {
-			tack--;
+			tack-=1;
 		}
 		System.out.println(tack);
 		the.setText(u + " lives left: " + tack);
